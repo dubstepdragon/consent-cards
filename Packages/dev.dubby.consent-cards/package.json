@@ -1,0 +1,14 @@
+{
+  "name": "dev.dubby.consent-cards",
+  "displayName": "Consent Cards",
+  "version": "0.0.1",
+  "description": "Describe this Package",
+  "vpmDependencies": {
+    "com.vrchat.avatars": "3.7.4"
+  },
+  "author": {
+    "name": "Dubby",
+    "email": "dubstep.dragon@dubby.dev",
+    "url": "https://dubby.dev"
+  }
+}
