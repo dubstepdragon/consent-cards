@@ -1,0 +1,28 @@
+{
+    "name":"Consent Cards",
+    "id":"com.vrchat.consent-cards-listing",
+    "url":"https://dubstepdragon.github.io/consent-cards/index.json",
+    "author":{
+        "email":"dubstep.dragon@dubby.dev",
+        "name":"Dubby",
+        "url":"https://dubby.dev"
+    },
+    "description":"Consent Cards and required packages",
+    "infoLink":{
+        "url":"https://github.com/dubstepdragon/consent-cards",
+        "text":"View on GitHub"
+    },
+    "bannerUrl":"banner.png",
+    "githubRepos":[
+        "dubstepdragon/attach-to-me"
+    ],
+    "packages":[
+        {
+            "name":"com.vrchat.udonsharp",
+            "releases":[
+                "https://github.com/vrchat-community/UdonSharp/releases/download/1.1.9/com.vrchat.UdonSharp.zip",
+                "https://github.com/vrchat-community/UdonSharp/releases/download/1.1.9/com.vrchat.UdonSharp-1.1.9.zip"
+            ]
+        }
+    ]
+}
