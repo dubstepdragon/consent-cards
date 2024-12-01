@@ -1,7 +1,7 @@
 {
   "name": "dev.dubby.consent-cards",
   "displayName": "Consent Cards",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Describe this Package",
   "vpmDependencies": {
     "com.vrchat.avatars": "3.7.4",
