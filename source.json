@@ -20,8 +20,7 @@
         {
             "name":"com.vrchat.udonsharp",
             "releases":[
-                "https://github.com/vrchat-community/UdonSharp/releases/download/1.1.9/com.vrchat.UdonSharp.zip",
-                "https://github.com/vrchat-community/UdonSharp/releases/download/1.1.9/com.vrchat.UdonSharp-1.1.9.zip"
+                "https://github.com/vrchat-community/UdonSharp/releases/download/1.1.9/com.vrchat.UdonSharp.zip"
             ]
         }
     ]
