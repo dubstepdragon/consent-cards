@@ -1,3 +1,5 @@
+VCC Listing: https://dubstepdragon.github.io/consent-cards/
+
 # Consent Cards
 
 This was a project in an effort to help represent consent in the clearest way possible in VRChat meetups. 
