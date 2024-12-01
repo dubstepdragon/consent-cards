@@ -14,7 +14,8 @@
     },
     "bannerUrl":"banner.png",
     "githubRepos":[
-        "dubstepdragon/attach-to-me"
+        "dubstepdragon/attach-to-me",
+        "dubstepdragon/consent-cards"
     ],
     "packages":[
         {
