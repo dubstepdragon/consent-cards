@@ -3,18 +3,20 @@ VCC Listing: https://dubstepdragon.github.io/consent-cards/
 # Consent Cards
 
 This was a project in an effort to help represent consent in the clearest way possible in VRChat meetups. 
-Be it 18+ or not, consent is key among everyone when it comes to social interactions. 
 
-Consent is such an important thing this tool will be open, avaiable and free to use for everyone (and I plan to keep it that way)
+Consent is key among everyone when it comes to social interactions so I made this tool to help people broadcast their intentions in worlds where this tool has been imported.
 
-The only monitization I want to have with this project is donations if you wish to support the project (for that purchase it through gum road and add monatary value)
+I ask Kindly that any forks, upgrades or other distributions to this tool maintain the free and open source core of this project. 
 
-I ask Kindly that any forks or upgrades to this repo maintain the free and open source idea of this project. 
+## How to use
 
-# How to use
-
-1. Add to VCC then add to your project
+1. Use the VCC link to add to the Creator Companion
 2. Use the Helpful Editor Window to generate the managers, and panels needed.
-3. Drag the main panel where you feel it will work best.
-4. The main manager can reside anywhere, the canvas window can be shown hidden or put where you want, it's a local window.
+3. Edit the Details of each of the indicators.
+4. Upload your VRChat World!
 
+## Rules for Forking, Contributing, or Redistribution
+
+I ask you don't charge for this tool. As I said above, Consent is Key, I hope this tool will help make it easier for people to broadcast their intentions at meetups, or other situations. 
+
+If you feel you want to donate, I have a gumroad link where you can send money through a storefront to support my development on this tool. 
