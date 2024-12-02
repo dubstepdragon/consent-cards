@@ -4,7 +4,8 @@
         "VRC.SDKBase",
         "UdonSharp.Runtime",
         "UdonSharp.Lib",
-        "VRC.Udon"
+        "VRC.Udon",
+        "bd.attachtome"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

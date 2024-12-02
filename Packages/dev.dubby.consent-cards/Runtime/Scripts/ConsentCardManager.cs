@@ -12,10 +12,20 @@ public class ConsentCardManager : UdonSharpBehaviour
     public DataDictionary playersAndCards;
     
     public GameObject cardPrefab;
+    
+    public Transform cardSpawnPoint;
 
     public void Start()
     {
         playersAndCards = new DataDictionary();
+    }
+
+    public void ResetCard(VRCPlayerApi player)
+    {
+        if (playersAndCards.TryGetValue(player.playerId, TokenType.Reference, out var cardToRemove))
+        {
+
+        }
     }
 
     public void SpawnCard(VRCPlayerApi player)

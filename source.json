@@ -14,14 +14,13 @@
     },
     "bannerUrl":"banner.png",
     "githubRepos":[
-        "dubstepdragon/attach-to-me",
         "dubstepdragon/consent-cards"
     ],
     "packages":[
         {
-            "name":"com.vrchat.udonsharp",
+            "name":"net.fushizen.attachable",
             "releases":[
-                "https://github.com/vrchat-community/UdonSharp/releases/download/1.1.9/com.vrchat.UdonSharp.zip"
+                "https://github.com/bdunderscore/attach-to-me/releases/download/v1.2.0/AttachToMe-v1.2.0.unitypackage"
             ]
         }
     ]
