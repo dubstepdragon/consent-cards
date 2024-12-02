@@ -5,7 +5,7 @@
         "UdonSharp.Runtime",
         "UdonSharp.Lib",
         "VRC.Udon",
-        "bd.attachtome"
+        "Unity.TextMeshPro"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

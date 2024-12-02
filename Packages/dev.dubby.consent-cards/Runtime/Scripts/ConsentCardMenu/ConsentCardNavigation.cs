@@ -9,11 +9,16 @@ using VRC.Udon;
 
 public class ConsentCardNavigation : UdonSharpBehaviour
 {
+    public ConsentCardManager manager;
+    
     public Toggle worldMasterSettingsPageToggle;
     
     public GameObject infoPage;
     public GameObject settingsPage;
     public GameObject worldMasterSettingsPage;
+    
+    public Slider heightSlider;
+    public Slider scaleSlider;
     
   
     
@@ -49,6 +54,31 @@ public class ConsentCardNavigation : UdonSharpBehaviour
     }
     
     
+    public void SetPlayerRed()
+    {
+        manager.SetPlayerRed();
+    }
+
+    public void SetPlayerYellow()
+    {
+        manager.SetPlayerYellow();
+    }
+
+    public void SetPlayerGreen()
+    {
+        manager.SetPlayerGreen();
+    }
+
+
+    public void SetBadgeHeight()
+    {
+        manager.SetBadgeHeight(heightSlider.value);
+    }
+
+    public void SetBadgeScale()
+    {
+        manager.SetBadgeScale(scaleSlider.value);
+    }
     
 
  

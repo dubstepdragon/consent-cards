@@ -15,13 +15,5 @@
     "bannerUrl":"banner.png",
     "githubRepos":[
         "dubstepdragon/consent-cards"
-    ],
-    "packages":[
-        {
-            "name":"net.fushizen.attachable",
-            "releases":[
-                "https://github.com/bdunderscore/attach-to-me/releases/download/v1.2.0/AttachToMe-v1.2.0.zip"
-            ]
-        }
     ]
 }
