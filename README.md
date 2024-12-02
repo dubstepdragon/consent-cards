@@ -13,4 +13,8 @@ I ask Kindly that any forks or upgrades to this repo maintain the free and open 
 
 # How to use
 
-1. 
+1. Add to VCC then add to your project
+2. Use the Helpful Editor Window to generate the managers, and panels needed.
+3. Drag the main panel where you feel it will work best.
+4. The main manager can reside anywhere, the canvas window can be shown hidden or put where you want, it's a local window.
+
