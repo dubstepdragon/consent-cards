@@ -11,7 +11,7 @@ I ask Kindly that any forks, upgrades or other distributions to this tool mainta
 ## How to use
 
 1. Use the VCC link to add to the Creator Companion
-2. Use the Helpful Editor Window to generate the managers, and panels needed.
+2. Use the Helpful Editor Window to generate the managers, and panels needed. (This is a wip and will be finished in the next update)
 3. Edit the Details of each of the indicators.
 4. Upload your VRChat World!
 
