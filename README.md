@@ -25,3 +25,11 @@ I ask Kindly that any forks, upgrades or other distributions to this tool mainta
 I ask you don't charge for this tool. As I said above, Consent is Key, I hope this tool will help make it easier for people to broadcast their intentions at meetups, or other situations. 
 
 If you feel you want to support my work, feel free to visit my [Gumroad](https://dubstepdragon.gumroad.com/l/Consent-Cards)
+
+## Planned updates
+
+- world persistence, vrchat is rilling out persistence so I'll be incorporating thet into the system
+- customizable cards, i want to do some cosmetics with the cards so there can he tails horns and so on
+- visual toggles, so people can easily turn them on and off bith locally and in the world
+- Editor window, for easily putting the tool into your world and changing information for the cards.
+- offline uploading, develop a system to allow remote uploading of information so you dont have to re-upload the while world
