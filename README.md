@@ -28,7 +28,7 @@ If you feel you want to support my work, feel free to visit my [Gumroad](https:/
 
 ## Planned updates
 
-- world persistence, vrchat is rilling out persistence so I'll be incorporating thet into the system
+- world persistence, vrchat is rolling out persistence so I'll be incorporating thet into the system
 - customizable cards, i want to do some cosmetics with the cards so there can he tails horns and so on
 - visual toggles, so people can easily turn them on and off bith locally and in the world
 - Editor window, for easily putting the tool into your world and changing information for the cards.
