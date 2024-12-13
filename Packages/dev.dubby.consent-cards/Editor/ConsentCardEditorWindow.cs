@@ -13,7 +13,7 @@ public class ConsentCardEditorWindow : EditorWindow
 
     public const string menuPath = "Consent Cards/Tools/Import Dependencies";
     
-    [MenuItem(menuPath)]
+    //[MenuItem(menuPath)]
     public static void DownloadAndImportUnityPackage()
     {
         try

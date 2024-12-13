@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1035144792
 RectTransform:
   m_ObjectHideFlags: 0
@@ -415,7 +415,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2122243339
 Transform:
   m_ObjectHideFlags: 0
@@ -457,7 +457,7 @@ Transform:
   m_GameObject: {fileID: 8350938674849690121}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.42936, y: 0.42936, z: 0.42936}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7678520620142471225}
   - {fileID: 2122243339}
@@ -489,7 +489,6 @@ MonoBehaviour:
   _udonSharpBackingUdonBehaviour: {fileID: 2970257286564516297}
   cardPrefab: {fileID: 7672200474971019731, guid: 996c2ce6c103df348b796670146e2817,
     type: 3}
-  cardSpawnPoint: {fileID: 2122243339}
 --- !u!114 &2970257286564516297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -607,6 +606,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3de505cb32307904a8fa9c47a1274315,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3de505cb32307904a8fa9c47a1274315, type: 3}
