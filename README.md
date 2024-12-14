@@ -19,7 +19,8 @@ I ask Kindly that any forks, upgrades or other distributions to this tool mainta
      5. Feel free to move the "Consent Card Manager Menu" Where you want, turn it on and off, attach it to anything you want.
         - IMPORTANT NOTE: Make sure to leave the "Consent Card Manager" active!
      6. Click on "Consent Card Tools/Consent Card Editor Window" In the top bar ![image](https://github.com/user-attachments/assets/43dedbee-da59-435e-acb7-deeb05f90836)
-     7. Enter a number that matches the world capacity you have set ![image](https://github.com/user-attachments/assets/33c6eb46-8a0a-46c8-996c-8fe78f557bb2)
+        - If it says `Consent Card Manager Missing, please Drag and Drop it Here...` make sure to have the Consent Card Manager in the scene and drag and drop it into that slot.
+     8. Enter a number that matches the world capacity you have set ![image](https://github.com/user-attachments/assets/33c6eb46-8a0a-46c8-996c-8fe78f557bb2)
 
 
 3. Upload your VRChat World!
