@@ -2,36 +2,53 @@
 using System;
 using UdonSharp;
 using UnityEngine;
+using VRC.SDK3.Components;
 using VRC.SDK3.Data;
 using VRC.SDKBase;
 using VRC.Udon;
+using VRC.Udon.Common.Interfaces;
 
 public class ConsentCardManager : UdonSharpBehaviour
 {
     
     private DataDictionary playersAndCards = new DataDictionary();
     
-    public GameObject cardPrefab;
+    public VRCObjectPool cardPool;
     
     
-
-
     private void SpawnCard(VRCPlayerApi player)
     {
-
-        GameObject newCard = Instantiate(cardPrefab, transform);
+        GameObject newCard = cardPool.TryToSpawn();
+        if (newCard == null) return;
         ConsentCard cc = newCard.GetComponent<ConsentCard>();
         cc.owningPlayerId = player.playerId;
+        cc.RequestSerialization();
         playersAndCards.Add(player.playerId, cc);
     }
+    
 
+    public override void OnDeserialization()
+    {
+        base.OnDeserialization();
+        
+        var players = new VRCPlayerApi[VRCPlayerApi.GetPlayerCount()];  
+        VRCPlayerApi.GetPlayers(players);
+
+        foreach (var player in players)
+        {
+            if (player != Networking.LocalPlayer)
+            {
+                SpawnCard(player);
+            }
+        }
+    }
 
     private void RemoveCard(VRCPlayerApi player)
     {
         var cc = GetCard(player);
         if(cc != null )
         {
-            Destroy(cc.gameObject);
+            cardPool.Return(cc.gameObject);
         }
         playersAndCards.Remove(player.playerId);
     }
@@ -50,7 +67,7 @@ public class ConsentCardManager : UdonSharpBehaviour
         VRCPlayerApi player = Networking.LocalPlayer;
         var card = GetCard(player);
         if (card == null) return;
-        card.SetIndicatorRed();
+        card.SendCustomNetworkEvent(NetworkEventTarget.All,"SetIndicatorRed");
     }
 
     public void SetPlayerYellow()
@@ -58,7 +75,7 @@ public class ConsentCardManager : UdonSharpBehaviour
         VRCPlayerApi player = Networking.LocalPlayer;
         var card = GetCard(player);
         if (card == null) return;
-        card.SetIndicatorYellow();
+        card.SendCustomNetworkEvent(NetworkEventTarget.All,"SetIndicatorYellow");
     }
 
     public void SetPlayerGreen()
@@ -66,10 +83,9 @@ public class ConsentCardManager : UdonSharpBehaviour
         VRCPlayerApi player = Networking.LocalPlayer;
         var card = GetCard(player);
         if (card == null) return;
-        card.SetIndicatorGreen();
+        card.SendCustomNetworkEvent(NetworkEventTarget.All,"SetIndicatorGreen");
     }
-
-
+    
     public void SetBadgeHeight(float value)
     {
         VRCPlayerApi player = Networking.LocalPlayer;

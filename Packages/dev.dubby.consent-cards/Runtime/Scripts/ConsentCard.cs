@@ -1,17 +1,10 @@
-﻿
-using System;
+﻿using System;
 using UdonSharp;
 using UnityEngine;
 using UnityEngine.Serialization;
 using VRC.SDKBase;
 using VRC.Udon;
 
-public enum IndicatorState
-{
-    Red,
-    Green,
-    Yellow
-}
 
 
 public class ConsentCard : UdonSharpBehaviour
@@ -19,15 +12,18 @@ public class ConsentCard : UdonSharpBehaviour
     [UdonSynced]
     public int owningPlayerId;
     
-    [UdonSynced]
-    public IndicatorState indicatorState = IndicatorState.Red;
+    /// <summary>
+    /// Red = 0
+    /// Green = 1
+    /// Yellow = 2
+    /// </summary>
+    [UdonSynced] public int indicatorState = 0;
     
     
-    //TODO: make this a height slider
+
     [UdonSynced]
     public float y_offset = 0.2f;
 
-    //TODO: make this a size slider
     [UdonSynced]
     public float cardScale = 1.0f;
     
@@ -45,20 +41,26 @@ public class ConsentCard : UdonSharpBehaviour
     
     void Start()
     {
-        SetIndicator(IndicatorState.Red);
+        SetIndicator(0);
     }
 
-    public void SetIndicator(IndicatorState state)
+    public override void OnDeserialization()
+    {
+        base.OnDeserialization();
+        SetIndicator(indicatorState);
+    }
+
+    public void SetIndicator(int state)
     {
         switch (state)
         {
-            case IndicatorState.Red:
+            case 0:
                 SetIndicatorRed();
                 break;
-            case IndicatorState.Green:
+            case 1:
                 SetIndicatorGreen();
                 break;
-            case IndicatorState.Yellow:
+            case 2:
                 SetIndicatorYellow();
                 break;
             default:
@@ -68,23 +70,21 @@ public class ConsentCard : UdonSharpBehaviour
     }
     
 
+    
     public void SetIndicatorRed()
     {
-        indicatorState = IndicatorState.Red;
-        
+        indicatorState = 0;
     }
     
     public void SetIndicatorGreen()
     {
-        indicatorState = IndicatorState.Green;
-        
+        indicatorState = 1;
     }
     
     
     public void SetIndicatorYellow()
     {
-        indicatorState = IndicatorState.Yellow;
-        
+        indicatorState = 2;
     }
 
     public void FixedUpdate()
@@ -92,7 +92,7 @@ public class ConsentCard : UdonSharpBehaviour
         if (owningPlayerId == -1) return;
         
         var owningPlayer = VRCPlayerApi.GetPlayerById(owningPlayerId);
-        
+        if (owningPlayer == null) return;
         var headPos = owningPlayer.GetBonePosition(HumanBodyBones.Head);
         var Rot = owningPlayer.GetRotation();
         
@@ -106,7 +106,7 @@ public class ConsentCard : UdonSharpBehaviour
     {
         switch (indicatorState)
         {
-            case IndicatorState.Red:
+            case 0:
                 frontRed.SetActive(true);
                 frontGreen.SetActive(false);
                 frontYellow.SetActive(false);
@@ -115,7 +115,7 @@ public class ConsentCard : UdonSharpBehaviour
                 backGreen.SetActive(false);
                 backYellow.SetActive(false);
                 break;
-            case IndicatorState.Green:
+            case 1:
                 frontRed.SetActive(false);
                 frontGreen.SetActive(true);
                 frontYellow.SetActive(false);
@@ -124,7 +124,7 @@ public class ConsentCard : UdonSharpBehaviour
                 backGreen.SetActive(true);
                 backYellow.SetActive(false);
                 break;
-            case IndicatorState.Yellow:
+            case 2:
                 frontRed.SetActive(false);
                 frontGreen.SetActive(false);
                 frontYellow.SetActive(true);

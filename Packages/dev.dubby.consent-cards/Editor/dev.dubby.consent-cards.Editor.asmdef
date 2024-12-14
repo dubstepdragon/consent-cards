@@ -1,5 +1,6 @@
 {
     "name": "dev.dubby.consent-cards.Editor",
+    "rootNamespace": "",
     "references": [
         "VRC.SDK3A",
         "VRC.SDK3A.Editor",
@@ -7,7 +8,9 @@
         "VRC.SDKBase.Editor",
         "dev.dubby.consent-cards",
         "UdonSharp.Editor",
-        "VRC.Udon.Editor"
+        "VRC.Udon.Editor",
+        "UdonSharp.Runtime",
+        "VRC.SDK3.Editor"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
