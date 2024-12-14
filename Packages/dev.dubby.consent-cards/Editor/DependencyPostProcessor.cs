@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System.IO;
 using System.Net;
 using UnityEditor;
@@ -43,3 +44,4 @@ public class DependencyPostProcessor : AssetPostprocessor
     
 
 }
+#endif

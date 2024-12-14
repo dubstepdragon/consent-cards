@@ -13,22 +13,13 @@ public class ConsentCardManager : UdonSharpBehaviour
     
     public GameObject cardPrefab;
     
-
     
-
-    public void ResetCard(VRCPlayerApi player)
-    {
-        if (playersAndCards.TryGetValue(player.playerId, TokenType.Reference, out var cardToRemove))
-        {
-
-        }
-    }
 
 
     private void SpawnCard(VRCPlayerApi player)
     {
 
-        GameObject newCard = Instantiate(cardPrefab);
+        GameObject newCard = Instantiate(cardPrefab, transform);
         ConsentCard cc = newCard.GetComponent<ConsentCard>();
         cc.owningPlayerId = player.playerId;
         playersAndCards.Add(player.playerId, cc);
