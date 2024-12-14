@@ -11,14 +11,14 @@ I ask Kindly that any forks, upgrades or other distributions to this tool mainta
 ## How to use
 
 1. Use the VCC link to add to the Creator Companion
-2. Use the Helpful Editor Window to generate the managers, and panels needed. (This is a wip and will be finished in the next update)
-   - until the editor window is finished do the following
-     1. In Unity Go to Packages/Consent Cards/Runtime/Prefabs
-     2. Drag and Drop both the ConsentCardManager and the ConsentCardManagerMenu into the scene
-     3. Click on ConsentCardManagerMenu
-     4. In the Inspector on the right hand side of unity, drag and drop the ConsentCardManager into the "Manager" Variable    
-4. Edit the Details of each of the indicators.
-5. Upload your VRChat World!
+2. Open your Unity Project and do the following steps to get things setup:
+     1. In Unity Go to Packages/Consent Cards by Dubby/Runtime/Samples
+     2. Drag and Drop the "ConsentCardSampleScene" into the Hierarchy panel to open it. 
+     3. Ctrl click the "Consent Card Manager" and the "Consent Card Manager Menu" and drag them into your scene
+     4. To the left of the ConsentCardSampleScene click the three dots and click "Remove Scene" when promped to save the scene, say no. 
+     5. Feel free to move the "Consent Card Manager Menu" Where you want, turn it on and off, attach it to anything you want.
+        - IMPORTANT NOTE: Make sure to leave the "Consent Card Manager" active!
+3. Upload your VRChat World!
 
 ## Rules for Forking, Contributing, or Redistribution
 
