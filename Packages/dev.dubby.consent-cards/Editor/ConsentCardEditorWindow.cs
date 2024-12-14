@@ -60,7 +60,9 @@ public class ConsentCardEditorWindow : EditorWindow
 
         if (EditorGUI.EndChangeCheck())
         {
+            if (!ConsentCardManager) return;
             if (!CardPrefab) return;
+            if (!CardParent) return;
             
             List<GameObject> forPool = new List<GameObject>();
 
