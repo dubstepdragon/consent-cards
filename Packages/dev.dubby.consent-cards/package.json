@@ -1,10 +1,10 @@
 {
   "name": "dev.dubby.consent-cards",
   "displayName": "Dubby Consent Cards",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "This was a project in an effort to help represent consent in the clearest way possible in VRChat meetups.\r\n\r\nConsent is key among everyone when it comes to social interactions so I made this tool to help people broadcast their intentions in worlds where this tool has been imported.\r\n\r\nI ask Kindly that any forks, upgrades or other distributions to this tool maintain the free and open source core of this project.",
   "vpmDependencies": {
-    "com.vrchat.avatars": "3.2.1"
+    "com.vrchat.worlds" : "^3.1.x"
   },
   "author": {
     "name": "Dubby",
@@ -14,6 +14,6 @@
   "LegacyPackages": [
     "com.vrchat.udonsharp"
   ],
-  "type": "tool",
+  "type": "World",
   "unity": "2019.4"
 }

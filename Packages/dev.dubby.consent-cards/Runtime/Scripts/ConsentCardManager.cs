@@ -9,7 +9,7 @@ using VRC.Udon;
 public class ConsentCardManager : UdonSharpBehaviour
 {
     
-    public DataDictionary playersAndCards = new DataDictionary();
+    private DataDictionary playersAndCards = new DataDictionary();
     
     public GameObject cardPrefab;
     
@@ -24,14 +24,8 @@ public class ConsentCardManager : UdonSharpBehaviour
         }
     }
 
-    public override void OnAvatarEyeHeightChanged(VRCPlayerApi player, float prevEyeHeightAsMeters)
-    {
-        base.OnAvatarEyeHeightChanged(player, prevEyeHeightAsMeters);
-        
-        
-    }
 
-    public void SpawnCard(VRCPlayerApi player)
+    private void SpawnCard(VRCPlayerApi player)
     {
 
         GameObject newCard = Instantiate(cardPrefab);
@@ -39,9 +33,9 @@ public class ConsentCardManager : UdonSharpBehaviour
         cc.owningPlayerId = player.playerId;
         playersAndCards.Add(player.playerId, cc);
     }
-    
 
-    public void RemoveCard(VRCPlayerApi player)
+
+    private void RemoveCard(VRCPlayerApi player)
     {
         var cc = GetCard(player);
         if(cc != null )
@@ -51,7 +45,7 @@ public class ConsentCardManager : UdonSharpBehaviour
         playersAndCards.Remove(player.playerId);
     }
 
-    public ConsentCard GetCard(VRCPlayerApi player)
+    private ConsentCard GetCard(VRCPlayerApi player)
     {
         if (playersAndCards.TryGetValue(player.playerId, TokenType.Reference, out var cardToRemove))
         {

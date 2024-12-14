@@ -80,6 +80,7 @@ public class ConsentCard : UdonSharpBehaviour
         
     }
     
+    
     public void SetIndicatorYellow()
     {
         indicatorState = IndicatorState.Yellow;
