@@ -1227,7 +1227,10 @@ MonoBehaviour:
     VCC and Gumroad and is free for everyone!\n\nhttps://github.com/dubstepdragon/consent-cards\nOr
     \nsearch Consent Cards on Gumroad\n\nConsent is Key.\n\nBe safe. Have fun. And
     most importantly\u201A respect consent.\n\nsend me a discord message or open
-    an issue on my Github Repo for feedback or issues.\n\nDiscord: DubstepDragon"
+    an issue on my Github Repo for feedback or issues.\n\nDiscord: DubstepDragon\n\nHuge
+    Thanks to CyanPlayerObjectPool. Spent a few days of my time building exactly
+    this tool, that you did better, Consent Cards wouldn't be possible with your
+    tool."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1254,7 +1257,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27.45
+  m_fontSize: 23.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4352,6 +4355,7 @@ Transform:
   - {fileID: 7606902903243430487}
   - {fileID: 1301557233}
   - {fileID: 1787983411}
+  - {fileID: 3480278762663400089}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1495568493
@@ -8149,7 +8153,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1491337265}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3480278762663670689
 GameObject:
@@ -8848,7 +8852,6 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 3480278762663400089}
   - {fileID: 1491337265}
   - {fileID: 920883272}
   - {fileID: 2479737471372305977}
