@@ -1,11 +1,14 @@
 {
     "name": "dev.dubby.consent-cards",
+    "rootNamespace": "",
     "references": [
         "VRC.SDKBase",
         "UdonSharp.Runtime",
         "UdonSharp.Lib",
         "VRC.Udon",
-        "Unity.TextMeshPro"
+        "Unity.TextMeshPro",
+        "Cyan.PlayerObjectPool.UdonSharp",
+        "Cyan.PlayerObjectPool"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -67,6 +67,7 @@ public class ConsentCard : UdonSharpBehaviour
                 SetIndicatorRed();
                 break;
         }
+        RequestSerialization();
     }
     
 
@@ -94,7 +95,6 @@ public class ConsentCard : UdonSharpBehaviour
         var owningPlayer = VRCPlayerApi.GetPlayerById(owningPlayerId);
         if (owningPlayer == null) return;
         var headPos = owningPlayer.GetBonePosition(HumanBodyBones.Head);
-        var Rot = owningPlayer.GetRotation();
         
         headPos.y += y_offset;
         

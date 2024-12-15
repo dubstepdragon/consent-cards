@@ -1,5 +1,6 @@
 ﻿
 using System;
+using Cyan.PlayerObjectPool;
 using UdonSharp;
 using UnityEngine;
 using VRC.SDK3.Components;
@@ -13,51 +14,35 @@ public class ConsentCardManager : UdonSharpBehaviour
     
     private DataDictionary playersAndCards = new DataDictionary();
     
-    public VRCObjectPool cardPool;
     
-    
-    private void SpawnCard(VRCPlayerApi player)
-    {
-        GameObject newCard = cardPool.TryToSpawn();
-        if (newCard == null) return;
-        ConsentCard cc = newCard.GetComponent<ConsentCard>();
-        cc.owningPlayerId = player.playerId;
-        cc.RequestSerialization();
-        playersAndCards.Add(player.playerId, cc);
-    }
-    
+    public VRCPlayerApi playerAssignedPlayer;
+    [HideInInspector]
+    public UdonBehaviour playerAssignedPoolObject;
 
-    public override void OnDeserialization()
-    {
-        base.OnDeserialization();
-        
-        var players = new VRCPlayerApi[VRCPlayerApi.GetPlayerCount()];  
-        VRCPlayerApi.GetPlayers(players);
 
-        foreach (var player in players)
-        {
-            if (player != Networking.LocalPlayer)
-            {
-                SpawnCard(player);
-            }
-        }
+    public void _OnPlayerAssigned()
+    {
+        //playerAssignedPlayer.gameObject.SetActive(true);
+        ConsentCard cc = playerAssignedPoolObject.GetComponent<ConsentCard>();
+        cc.owningPlayerId = playerAssignedPlayer.playerId;
+        cc.gameObject.SetActive(true);
+        playersAndCards.Add(playerAssignedPlayer.playerId, playerAssignedPoolObject.GetComponent<ConsentCard>());
     }
 
-    private void RemoveCard(VRCPlayerApi player)
+    public void _OnPlayerUnassigned()
     {
-        var cc = GetCard(player);
-        if(cc != null )
-        {
-            cardPool.Return(cc.gameObject);
-        }
-        playersAndCards.Remove(player.playerId);
+        ConsentCard cc = GetCard(playerAssignedPlayer);
+        cc.gameObject.SetActive(false);
+        playersAndCards.Remove(playerAssignedPlayer.playerId);
     }
+    
 
     private ConsentCard GetCard(VRCPlayerApi player)
     {
-        if (playersAndCards.TryGetValue(player.playerId, TokenType.Reference, out var cardToRemove))
+        if (playersAndCards.TryGetValue(player.playerId, TokenType.Reference, out var cardRef))
         {
-           return (ConsentCard)cardToRemove.Reference;
+            ConsentCard cc = (ConsentCard)cardRef.Reference;
+            return (ConsentCard)cardRef.Reference;
         }
         return null;
     }
@@ -67,23 +52,25 @@ public class ConsentCardManager : UdonSharpBehaviour
         VRCPlayerApi player = Networking.LocalPlayer;
         var card = GetCard(player);
         if (card == null) return;
-        card.SendCustomNetworkEvent(NetworkEventTarget.All,"SetIndicatorRed");
+        card.indicatorState = 0;
     }
 
-    public void SetPlayerYellow()
-    {
-        VRCPlayerApi player = Networking.LocalPlayer;
-        var card = GetCard(player);
-        if (card == null) return;
-        card.SendCustomNetworkEvent(NetworkEventTarget.All,"SetIndicatorYellow");
-    }
+   
 
     public void SetPlayerGreen()
     {
         VRCPlayerApi player = Networking.LocalPlayer;
         var card = GetCard(player);
         if (card == null) return;
-        card.SendCustomNetworkEvent(NetworkEventTarget.All,"SetIndicatorGreen");
+        card.indicatorState = 1;
+    }
+    
+    public void SetPlayerYellow()
+    {
+        VRCPlayerApi player = Networking.LocalPlayer;
+        var card = GetCard(player);
+        if (card == null) return;
+        card.indicatorState = 2;
     }
     
     public void SetBadgeHeight(float value)
@@ -103,15 +90,6 @@ public class ConsentCardManager : UdonSharpBehaviour
     }
 
 
-    public override void OnPlayerJoined(VRCPlayerApi player)
-    {
-        base.OnPlayerJoined(player);
-        SpawnCard(player);
-    }
-
-    public override void OnPlayerLeft(VRCPlayerApi player)
-    {
-        RemoveCard(player);
-        base.OnPlayerLeft(player);
-    }
+    
+    
 }

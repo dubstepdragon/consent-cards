@@ -10,7 +10,9 @@
         "UdonSharp.Editor",
         "VRC.Udon.Editor",
         "UdonSharp.Runtime",
-        "VRC.SDK3.Editor"
+        "VRC.SDK3.Editor",
+        "Cyan.PlayerObjectPool",
+        "Cyan.PlayerObjectPool.UdonSharp"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -2,7 +2,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cyan.PlayerObjectPool;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using VRC.Core;
@@ -15,8 +17,8 @@ public class ConsentCardEditorWindow : EditorWindow
     
     public GameObject CardPrefab;
 
-    public static ConsentCardManager ConsentCardManager;
-    public static VRCObjectPool CardParent;
+    public ConsentCardManager ConsentCardManager;
+    public CyanPlayerObjectPool ObjectAssigner;
     
     public static int WorldCapacity = 32;
     
@@ -26,8 +28,8 @@ public class ConsentCardEditorWindow : EditorWindow
         ConsentCardEditorWindow wnd = GetWindow<ConsentCardEditorWindow>();
         wnd.titleContent = new GUIContent("Consent Card Editor Window");
 
-        ConsentCardManager = FindObjectOfType<ConsentCardManager>();
-        CardParent = ConsentCardManager.GetComponentInChildren<VRCObjectPool>();
+        wnd.ConsentCardManager = FindObjectOfType<ConsentCardManager>();
+        wnd.ObjectAssigner = wnd.ConsentCardManager.GetComponentInChildren<CyanPlayerObjectPool>();
         
         
     }
@@ -39,7 +41,7 @@ public class ConsentCardEditorWindow : EditorWindow
         {
             ConsentCardManager = EditorGUILayout.ObjectField("Consent Card Manager Missing, please Drag and Drop it Here...", (ConsentCardManager)ConsentCardManager, typeof(ConsentCardManager), true) as ConsentCardManager;
             if (ConsentCardManager == null) return;
-            CardParent =  ConsentCardManager.GetComponentInChildren<VRCObjectPool>();
+            ObjectAssigner =  ConsentCardManager.GetComponentInChildren<CyanPlayerObjectPool>();
         }
         
         WorldCapacityInput();
@@ -60,34 +62,8 @@ public class ConsentCardEditorWindow : EditorWindow
 
         if (EditorGUI.EndChangeCheck())
         {
-            if (!ConsentCardManager) return;
-            if (!CardPrefab) return;
-            if (!CardParent) return;
-            
-            List<GameObject> forPool = new List<GameObject>();
-
-            for (int i = 0; i < CardParent.transform.childCount; i++)
-            {
-                DestroyImmediate(CardParent.transform.GetChild(i).gameObject);
-            }
-
-            for (int i = 0; i < WorldCapacity; i++)
-            {
-                float progress = (float)CardParent.transform.childCount / (float)WorldCapacity;
-                EditorUtility.DisplayProgressBar("Consent Card Editor Window Process", "Adjusting Consent Card number...", progress);
-                GameObject spawnedCard = PrefabUtility.InstantiatePrefab(CardPrefab, CardParent.transform) as GameObject;
-                if (!spawnedCard)
-                {
-                    Debug.LogError("Error Spawning Card Prefab, Check References");
-                    return;
-                }
-                spawnedCard.SetActive(false);
-                forPool.Add(spawnedCard);
-            }
-            
-            CardParent.Pool = forPool.ToArray();
-            
-            EditorUtility.ClearProgressBar();
+          ObjectAssigner.poolSize = WorldCapacity * 2 + 2; //This is according to the tooltip provided in the documentation for Cyan Object assigner.
+          EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
         }
     }
 }
