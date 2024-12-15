@@ -8,6 +8,12 @@ Consent is key among everyone when it comes to social interactions so I made thi
 
 I ask Kindly that any forks, upgrades or other distributions to this tool maintain the free and open source core of this project. 
 
+## Installation
+
+Utilize the VCC Listing: https://dubstepdragon.github.io/consent-cards/ to add to the creator companion.
+
+Then use the Creator Companion to add the tool to your project. 
+
 ## How to use
 
 1. Use the VCC link to add to the Creator Companion
@@ -32,6 +38,10 @@ I ask Kindly that any forks, upgrades or other distributions to this tool mainta
 I ask you don't charge for this tool. As I said above, Consent is Key, I hope this tool will help make it easier for people to broadcast their intentions at meetups, or other situations. 
 
 If you feel you want to support my work, feel free to visit my [Gumroad](https://dubstepdragon.gumroad.com/l/Consent-Cards)
+
+## Thanks
+
+Huge Thanks to CyanPlayerObjectPool. Spent a few days of my time building exactly this tool, that you did better, Consent Cards wouldn't be possible with your tool. 
 
 ## Planned updates
 
