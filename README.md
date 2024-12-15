@@ -41,7 +41,7 @@ If you feel you want to support my work, feel free to visit my [Gumroad](https:/
 
 ## Thanks
 
-Huge Thanks to CyanPlayerObjectPool. Spent a few days of my time building exactly this tool, that you did better, Consent Cards wouldn't be possible with your tool. 
+Huge Thanks to [CyanPlayerObjectPool](https://github.com/CyanLaser/CyanPlayerObjectPool). Spent a few days of my time building exactly this tool, that you did better, Consent Cards wouldn't be possible with your tool. 
 
 ## Planned updates
 
