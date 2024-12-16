@@ -186,6 +186,12 @@
         </fluent-data-grid-row>
         {{~ for package in packages ~}}
 		  {{~ if package.Author.Name == listingInfo.Author ~}}
+			  <script>
+				console.log("{{package.Author.Name}}");
+				console.log("{{package.author.name}}");
+				console.log("{{listingInfo.Author}}");
+				console.log("{{listingInfo.author}}");
+			  </script>
 			  <fluent-data-grid-row data-package-name="{{ package.DisplayName }}" data-package-id="{{ package.Name }}">
 				<fluent-data-grid-cell grid-column="1">
 				  <div class="col">
@@ -235,10 +241,10 @@
         {{~ for package in packages ~}}
 		  {{~ if package.Author.Name != listingInfo.Author ~}}
 			  <script>
-				console.log(package.Author.Name);
-				console.log(package.author.name);
-				console.log(listingInfo.Author);
-				console.log(listingInfo.author);
+				console.log("{{package.Author.Name}}");
+				console.log("{{package.author.name}}");
+				console.log("{{listingInfo.Author}}");
+				console.log("{{listingInfo.author}}");
 			  </script>
 			  <fluent-data-grid-row data-package-name="{{ package.DisplayName }}" data-package-id="{{ package.Name }}">
 				<fluent-data-grid-cell grid-column="1">
