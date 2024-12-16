@@ -13,12 +13,14 @@
       {{~ if listingInfo.BannerImage; ~}}
         <div class="bannerImage" style="background-image: url({{ listingInfo.BannerImageUrl }})"></div>
       {{~ end; ~}}
+	  <!--
       <h1>
         {{~ listingInfo.Name ~}}
       </h1>
       {{~ if listingInfo.Description; ~}}
         <div class="caption1 mb-2">{{ listingInfo.Description }}</div>
       {{~ end; ~}}
+	  -->
       <div class="col align-items-center">
         {{~ if listingInfo.Author.Email; ~}}
         <fluent-tooltip id="publishedByTooltip" anchor="publishedByText">
