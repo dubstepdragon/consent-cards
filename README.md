@@ -50,3 +50,14 @@ Huge Thanks to [CyanPlayerObjectPool](https://github.com/CyanLaser/CyanPlayerObj
 - visual toggles, so people can easily turn them on and off bith locally and in the world
 - Editor window, for easily putting the tool into your world and changing information for the cards.
 - offline uploading, develop a system to allow remote uploading of information so you dont have to re-upload the while world
+
+## Pictures
+
+![image](https://github.com/user-attachments/assets/2fac60c6-c38d-438e-89b5-218539e3aaca)
+
+![image](https://github.com/user-attachments/assets/c301d0a9-7c5a-40b6-ae03-872c524cf819)
+
+![image](https://github.com/user-attachments/assets/dc40fced-0a6d-4b6e-8c5d-c0e0cb3b21d1)
+
+
+
