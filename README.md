@@ -1,3 +1,10 @@
+
+for trouble shooting join my dev discord!
+
+ <a href="https://discord.gg/ZZCX6Bj7fB">
+    <img alt="Discord" src="https://img.shields.io/discord/550477546958094348?color=%237289da&label=DISCORD&logo=Discord&style=for-the-badge">
+</a>
+
 VCC Listing: https://dubstepdragon.github.io/consent-cards/
 
 # Consent Cards
