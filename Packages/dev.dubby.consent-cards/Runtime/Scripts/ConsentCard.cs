@@ -13,9 +13,10 @@ public class ConsentCard : UdonSharpBehaviour
     public int owningPlayerId;
     
     /// <summary>
-    /// Red = 0
-    /// Green = 1
+    /// Off = 0
+    /// Red = 1
     /// Yellow = 2
+    /// Green = 3
     /// </summary>
     [UdonSynced] public int indicatorState = 0;
     
@@ -27,16 +28,14 @@ public class ConsentCard : UdonSharpBehaviour
     [UdonSynced]
     public float cardScale = 1.0f;
     
- 
-    public GameObject frontRed;
-    public GameObject frontGreen;
-    public GameObject frontYellow;
-    
 
-    public GameObject backRed;
-    public GameObject backGreen;
-    public GameObject backYellow;
-    
+    public GameObject frontIndicators;
+    public GameObject backIndicators;
+
+    public GameObject frontCanvas;
+    public GameObject backCanvas;
+
+    public GameObject cardModels;
    
     
     void Start()
@@ -50,43 +49,45 @@ public class ConsentCard : UdonSharpBehaviour
         SetIndicator(indicatorState);
     }
 
-    public void SetIndicator(int state)
+    /// <summary>
+    /// Indicators on the card are one less because actual indicators range from 1-n with 0 being "Off"
+    /// so the front and back indicators array will always be one less than the button array
+    ///
+    /// so we get the "current state" by subtracting one from what ever state is coming in, if the state is 0, we turn off the badge
+    ///
+    /// We also check if the front and back indicators have the same child count, they SHOULD if they don't that's a problem
+    /// </summary>
+    /// <param name="state"></param>
+    private void SetIndicator(int state)
     {
-        switch (state)
+        if (state == 0)
         {
-            case 0:
-                SetIndicatorRed();
-                break;
-            case 1:
-                SetIndicatorGreen();
-                break;
-            case 2:
-                SetIndicatorYellow();
-                break;
-            default:
-                SetIndicatorRed();
-                break;
+            SetBadgeOff();
+            return;
+        }
+        
+        frontCanvas.SetActive(true);
+        backCanvas.SetActive(true);
+        cardModels.SetActive(true);
+        
+        if (frontIndicators.transform.childCount != backIndicators.transform.childCount) return;
+        
+        int inState = state - 1;
+        for (int i = 0; i < frontIndicators.transform.childCount; i++)
+        {
+            frontIndicators.transform.GetChild(i).gameObject.SetActive(i == inState);
+            backIndicators.transform.GetChild(i).gameObject.SetActive(i == inState);
         }
         RequestSerialization();
     }
-    
 
-    
-    public void SetIndicatorRed()
+    private void SetBadgeOff()
     {
-        indicatorState = 0;
+        frontCanvas.SetActive(false);
+        backCanvas.SetActive(false);
+        cardModels.SetActive(false);
     }
     
-    public void SetIndicatorGreen()
-    {
-        indicatorState = 1;
-    }
-    
-    
-    public void SetIndicatorYellow()
-    {
-        indicatorState = 2;
-    }
 
     public void FixedUpdate()
     {
@@ -102,46 +103,16 @@ public class ConsentCard : UdonSharpBehaviour
         transform.localScale = new Vector3(cardScale, cardScale, cardScale);
     }
 
+
+    private int previousIndicatorState = 0;
+    
     public void Update()
     {
-        switch (indicatorState)
+        if(indicatorState != previousIndicatorState)
         {
-            case 0:
-                frontRed.SetActive(true);
-                frontGreen.SetActive(false);
-                frontYellow.SetActive(false);
-        
-                backRed.SetActive(true);
-                backGreen.SetActive(false);
-                backYellow.SetActive(false);
-                break;
-            case 1:
-                frontRed.SetActive(false);
-                frontGreen.SetActive(true);
-                frontYellow.SetActive(false);
-        
-                backRed.SetActive(false);
-                backGreen.SetActive(true);
-                backYellow.SetActive(false);
-                break;
-            case 2:
-                frontRed.SetActive(false);
-                frontGreen.SetActive(false);
-                frontYellow.SetActive(true);
-        
-                backRed.SetActive(false);
-                backGreen.SetActive(false);
-                backYellow.SetActive(true);
-                break;
-            default:
-                frontRed.SetActive(true);
-                frontGreen.SetActive(false);
-                frontYellow.SetActive(false);
-        
-                backRed.SetActive(true);
-                backGreen.SetActive(false);
-                backYellow.SetActive(false);
-                break;
+            SetIndicator(indicatorState);
         }
+        
+        previousIndicatorState = indicatorState;
     }
 }

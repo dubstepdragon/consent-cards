@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using Cyan.PlayerObjectPool;
 using UdonSharp;
 using UnityEngine;
@@ -18,6 +19,7 @@ public class ConsentCardManager : UdonSharpBehaviour
     public VRCPlayerApi playerAssignedPlayer;
     [HideInInspector]
     public UdonBehaviour playerAssignedPoolObject;
+
 
 
     public void _OnPlayerAssigned()
@@ -47,31 +49,16 @@ public class ConsentCardManager : UdonSharpBehaviour
         return null;
     }
 
-    public void SetPlayerRed()
+
+    public void SetPlayerIndicator(int state)
     {
+        Debug.Log("Clicked to change indicator to " + state);
         VRCPlayerApi player = Networking.LocalPlayer;
         var card = GetCard(player);
         if (card == null) return;
-        card.indicatorState = 0;
+        card.indicatorState = state;
     }
 
-   
-
-    public void SetPlayerGreen()
-    {
-        VRCPlayerApi player = Networking.LocalPlayer;
-        var card = GetCard(player);
-        if (card == null) return;
-        card.indicatorState = 1;
-    }
-    
-    public void SetPlayerYellow()
-    {
-        VRCPlayerApi player = Networking.LocalPlayer;
-        var card = GetCard(player);
-        if (card == null) return;
-        card.indicatorState = 2;
-    }
     
     public void SetBadgeHeight(float value)
     {

@@ -15,27 +15,30 @@ public class ConsentCardNavigation : UdonSharpBehaviour
     
     public GameObject infoPage;
     public GameObject settingsPage;
+    public GameObject moreCustomizationsPage;
     public GameObject worldMasterSettingsPage;
     
     public Slider heightSlider;
     public Slider scaleSlider;
     
-  
     
     void Start()
     {
         SetInfoPage();
     }
+    
 
     public override void OnPlayerJoined(VRCPlayerApi player)
     {
         worldMasterSettingsPageToggle.interactable = Networking.IsMaster;
     }
 
+    //TODO: Change pages to be more expandable maybe
     public void SetInfoPage()
     {
         infoPage.SetActive(true);
         settingsPage.SetActive(false);
+        moreCustomizationsPage.SetActive(false);
         worldMasterSettingsPage.SetActive(false);
     }
 
@@ -43,6 +46,15 @@ public class ConsentCardNavigation : UdonSharpBehaviour
     {
         infoPage.SetActive(false);
         settingsPage.SetActive(true);
+        moreCustomizationsPage.SetActive(false);
+        worldMasterSettingsPage.SetActive(false);
+    }
+
+    public void SetCustomizationPage()
+    {
+        infoPage.SetActive(false);
+        settingsPage.SetActive(false);
+        moreCustomizationsPage.SetActive(true);
         worldMasterSettingsPage.SetActive(false);
     }
 
@@ -50,26 +62,11 @@ public class ConsentCardNavigation : UdonSharpBehaviour
     {
         infoPage.SetActive(false);
         settingsPage.SetActive(false);
+        moreCustomizationsPage.SetActive(false);
         worldMasterSettingsPage.SetActive(true);
     }
+
     
-    
-    public void SetPlayerRed()
-    {
-        manager.SetPlayerRed();
-    }
-
-    public void SetPlayerYellow()
-    {
-        manager.SetPlayerYellow();
-    }
-
-    public void SetPlayerGreen()
-    {
-        manager.SetPlayerGreen();
-    }
-
-
     public void SetBadgeHeight()
     {
         manager.SetBadgeHeight(heightSlider.value);

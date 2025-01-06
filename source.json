@@ -12,7 +12,7 @@
         "url":"https://github.com/dubstepdragon/consent-cards",
         "text":"View on GitHub"
     },
-    "bannerUrl":"banner.png",
+    "bannerUrl":"https://github.com/dubstepdragon/consent-cards/blob/main/Website/banner.png",
     "githubRepos":[
         "dubstepdragon/consent-cards",
         "CyanLaser/CyanPlayerObjectPool"

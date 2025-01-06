@@ -1,7 +1,7 @@
 {
   "name": "dev.dubby.consent-cards",
   "displayName": "Consent Cards by Dubby",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Consent Card tool for VRChat Worlds",
   "vpmDependencies": {
     "com.vrchat.worlds": "^3.1.x",
